@@ -1,0 +1,10 @@
+.rsw-ce{
+    background-color: var(--bgColor);
+    min-height: 200px;
+    max-width: 600px;
+}
+
+.rsw-editor{
+    min-height: 200px;
+    max-width: 600px;
+}
