@@ -14,7 +14,8 @@ export const uploadFile = async (file) => {
     }
 }
 
-const url="http://localhost:5000/post/"
+//const url="http://localhost:5000/post/"
+const url = "https://beblog-server.onrender.com"
 
 export const delPhoto=async (id) => {
     console.log(id);
