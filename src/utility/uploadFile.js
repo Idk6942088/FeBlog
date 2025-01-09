@@ -20,7 +20,7 @@ const url = "https://beblog-server.onrender.com"
 export const delPhoto=async (id) => {
     console.log(id);
     try {
-        await axios.delete(url+id)
+        await axios.delete(`${url}/post/${id}`)
     } catch (error) {
         console.log(error);
         
