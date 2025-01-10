@@ -61,12 +61,12 @@ export const readPost = async (id, setPost) => {
   const docRef = doc(db, "posts", id);
   
   try{
-    //const docSnap = await getDoc(docRef);
+    const docSnap = await getDoc(docRef);
     const unsubscribe=onSnapshot(docRef,(snapshot)=>{
       setPost({...snapshot.data(),id:snapshot.id})
     })
     if (docSnap.exists()) {
-      //setPost({ ...docSnap.data(), id: docSnap.id });
+      setPost({ ...docSnap.data(), id: docSnap.id });
     } else {
       console.log("A dokumentum nem található.");
     }
@@ -75,15 +75,15 @@ export const readPost = async (id, setPost) => {
   }
 };
 
- /*   
-export const editPost=async (id,{title,category,description})=>{
+  
+export const updatePost=async (id,{title,category,story})=>{
   const docRef= doc(db, "posts", id);
   //setDoc(docRef, {todo,done})//felülír minden mezőt, s ha nem sorolok fel mindent, akkor kitörli, s csak a megadott mezők kerülnek be
-  await updateDoc(docRef, {title,category,description})//csak azt a mezőt írja felül amit megadok
+  await updateDoc(docRef, {title,category,story})//csak azt a mezőt írja felül amit megadok
   //updateDoc(docRef, {category})
   //updateDoc(docRef, {description})
 }
-
+/*
 export const editLikes=async (postId,userId)=>{
   console.log(postId,userId);
   const docRef= doc(db, "posts", postId);

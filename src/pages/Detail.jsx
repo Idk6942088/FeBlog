@@ -70,7 +70,7 @@ export const Detail = () => {
       {user && post && (user.uid==post.userId)&&
         <>
         <button className='btn btn-danger' onClick={handleDelete}><MdDelete/></button>
-        <button>edit post...</button>
+        <button onClick={()=>navigate('/update/'+post.id)}>edit post...</button>
         </>
     }
 
