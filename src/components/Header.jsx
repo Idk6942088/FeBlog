@@ -42,12 +42,9 @@ export const Header = () => {
                 className="menu"
                 style={{
                     borderBottom: "1px solid gray",
-                    backgroundColor: "rgb(171, 169, 38)",
+                    backgroundColor: "#2e7d32",
                 }}
             >
-                <NavbarBrand href="/">
-                    <FaBlog />
-                </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="me-auto" navbar>
@@ -70,7 +67,6 @@ export const Header = () => {
                             </NavItem>
                         )}
                     </Nav>
-                    {/* authorizáció*/}
                     <Nav navbar>
                         {!user ? (
                             <>

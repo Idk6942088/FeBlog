@@ -33,30 +33,115 @@ console.log(msg);
  console.log(user);
   
   return (
-    <div className='page'>
-     <div style={midleStyle}>
-      <h3>{isSignIn ? 'Bejelentkezés' : 'Regisztráció'}</h3>
-      <Form onSubmit={handleSubmit}>
-        <FormGroup>
-          <Label > Email  </Label>
-          <Input   name="email"    placeholder="email"    type="email"    />
-        </FormGroup>
-        <FormGroup>
-          <Label > Password</Label>
-          <Input   name="password"    type="password"  />
-        </FormGroup>
-        {!isSignIn &&
-         <FormGroup>
-          <Label > Felhasználónév:</Label>
-          <Input   name="displayName"    type="text"  />
-        </FormGroup>
-        }
-        <Button> Submit  </Button>
-      </Form>
-      <a href="#" onClick={()=>navigate('/pwreset')}>Elfelejtett jelszó...</a>
-      {msg && <Toastify  {...msg}/>}
-     </div>
+    <div className='page' style={{
+      backgroundColor: '#80e188',
+      minHeight: '100vh',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '20px',
+    }}>
+      <div style={{
+        backgroundColor: 'white',
+        padding: '30px',
+        borderRadius: '8px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        width: '100%',
+        maxWidth: '500px',
+        textAlign: 'center',
+      }}>
+        <h3 style={{
+          fontSize: '24px',
+          fontWeight: 'bold',
+          color: '#333',
+          marginBottom: '20px',
+        }}>
+          {isSignIn ? 'Bejelentkezés' : 'Regisztráció'}
+        </h3>
+    
+        <Form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <FormGroup style={{ display: 'flex', flexDirection: 'column' }}>
+            <Label style={{ fontWeight: 'bold', marginBottom: '5px' }}>Email</Label>
+            <Input
+              name="email"
+              placeholder="Email"
+              type="email"
+              style={{
+                padding: '10px',
+                borderRadius: '5px',
+                border: '1px solid #ccc',
+                fontSize: '16px',
+              }}
+            />
+          </FormGroup>
+    
+          <FormGroup style={{ display: 'flex', flexDirection: 'column' }}>
+            <Label style={{ fontWeight: 'bold', marginBottom: '5px' }}>Jelszó</Label>
+            <Input
+              name="password"              
+              type="password"
+              placeholder="Jelszó"
+              style={{
+                padding: '10px',
+                borderRadius: '5px',
+                border: '1px solid #ccc',
+                fontSize: '16px',
+              }}
+            />
+          </FormGroup>
+    
+          {!isSignIn && (
+            <FormGroup style={{ display: 'flex', flexDirection: 'column' }}>
+              <Label style={{ fontWeight: 'bold', marginBottom: '5px' }}>Felhasználónév</Label>
+              <Input
+                name="displayName"
+                type="text"
+                placeholder="Felhasználónév"
+                style={{
+                  padding: '10px',
+                  borderRadius: '5px',
+                  border: '1px solid #ccc',
+                  fontSize: '16px',
+                }}
+              />
+            </FormGroup>
+          )}
+    
+          <Button
+            style={{
+              padding: '10px 20px',
+              backgroundColor: '#198754',
+              color: 'white',
+              fontSize: '16px',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              transition: 'background-color 0.3s',
+              alignSelf: 'center',
+            }}
+          >
+            Jóváhagyás
+          </Button>
+        </Form>
+    
+        <a
+          href="#"
+          onClick={() => navigate('/pwreset')}
+          style={{
+            display: 'block',
+            marginTop: '10px',
+            color: 'black',
+            textDecoration: 'none',
+            fontSize: '14px',
+          }}
+        >
+          Elfelejtett jelszó...
+        </a>
+    
+        {msg && <Toastify {...msg} style={{ marginTop: '20px' }} />}
+      </div>
     </div>
+    
   )
 }
 

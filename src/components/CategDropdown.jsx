@@ -12,7 +12,7 @@ export const CategDropdown = ({categories,selCateg,setSelCateg}) => {
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   return (
-    <div className="d-flex p-5">
+    <div className="d-flex pb-3 pt-3">
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle caret>
             {selCateg? selCateg : "Categories"}

@@ -9,18 +9,14 @@ export const SearchBox=({items})=> {
 
 
   const handleOnSearch = (string, results) => {
-    // onSearch will have as the first callback parameter
-    // the string searched and for the second the results.
     console.log(string, results)
   }
 
   const handleOnHover = (result) => {
-    // the item hovered
     console.log(result)
   }
 
   const handleOnSelect = (item) => {
-    // the item selected
     console.log(item)
     navigate('/detail/'+item.id)
   }

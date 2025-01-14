@@ -11,41 +11,60 @@ export const Home = () => {
   
 
   return (
-    <div className='page'>
-      {categories && categories.map(obj=>
-        <Card
-        key={obj.id}
+    <div
+  className='page'
+  style={{
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '20px',
+    justifyContent: 'space-evenly',
+  }}
+>
+  {categories && categories.map(obj =>
+    <Card
+      key={obj.id}
+      style={{
+        maxHeight: "300px",
+        width: '18rem',
+        display: 'flex',
+        flexDirection: 'column',
+        border:"solid 3px green",
+      }}
+    >
+      <img
+        alt="Sample"
+        src={obj.photoURL}
         style={{
-          maxHeight: "530px",
-          width: '18rem'
+          width: '100%',
+          objectFit: 'cover',
+          height: '200px',
         }}
-      >
-        <img
-          alt="Sample"
-          src={obj.photoURL}
-        />
-        <CardBody>
-          <CardTitle tag="h5">
-            <NavLink to={"/posts?ctg="+obj.name} >
-              {obj.name}
-            </NavLink>
-          </CardTitle>
-          <CardSubtitle
-            className="mb-2 text-muted"
-            tag="h6"
-          >
-            Card subtitle
-          </CardSubtitle>
-          <CardText>
-            Some quick example text to build on the card title and make up the bulk of the card‘s content.
-          </CardText>
-          <Button>
-            Button
+      />
+      <CardBody>
+        <CardSubtitle
+          className="mb-2 text-muted text-center "
+          tag="h6"
+        >
+          {obj.name}
+        </CardSubtitle>
+        <NavLink
+          to={"/posts?ctg=" + obj.name}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textDecoration: "none"
+          }}
+        >
+          <Button color='success'>
+            Tovább
           </Button>
-        </CardBody>
-      </Card>
-      )}
-    </div>
+        </NavLink>
+      </CardBody>
+    </Card>
+  )}
+</div>
+
   )
 }
 

@@ -43,18 +43,26 @@ export const Posts = () => {
                             <Card
                                 key={obj.id}
                                 style={{
-                                    maxHeight: "530px",
-                                    width: "18rem",
-                                }}
+                                    maxHeight: "300px",
+                                    width: '18rem',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    border:"solid 3px green",
+                                  }}
                                 onClick={()=>navigate("/detail/"+obj.id)}
                             >
-                                <img alt="Sample" src={obj.photo.url} />
+                                <img alt="Sample" src={obj.photo.url} 
+                                    style={{
+                                        width: '100%',
+                                        objectFit: 'cover',
+                                        height: '200px',
+                                      }}
+                                />
                                 <CardBody>
-                                    <CardTitle tag="h5">{obj.title}</CardTitle>
-                                    <CardText>
-                                        {sanitizeHTML(obj.story)}
-                                    </CardText>
-                                    <Button>{obj.category}</Button>
+                                    <CardTitle className="text-center" tag="h5">{obj.title}</CardTitle>
+                                    <div style={{display:'flex', justifyContent:'center'}}>
+                                        <Button color="success">{obj.category}</Button>
+                                    </div>
                                 </CardBody>
                             </Card>
                         ))}
