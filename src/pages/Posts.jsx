@@ -19,7 +19,7 @@ export const Posts = () => {
 
     useEffect(() => {
         readPosts(setPosts,selCateg);
-    }, []);
+    }, [selCateg]);
 
     posts.length > 0 && console.log(posts);
 
@@ -36,6 +36,8 @@ export const Posts = () => {
                         justifyContent: "center",
                         flexWrap: "wrap",
                         gap: "10px",
+                        paddingTop:"40px",
+                        paddingBottom:"40px"
                     }}
                 >
                     {posts.length > 0 &&
@@ -43,7 +45,7 @@ export const Posts = () => {
                             <Card
                                 key={obj.id}
                                 style={{
-                                    maxHeight: "300px",
+                                    maxHeight: "320px",
                                     width: '18rem',
                                     display: 'flex',
                                     flexDirection: 'column',
